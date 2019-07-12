@@ -15,6 +15,18 @@ void clearInput(istream &in){
     
 }
 
+/* Boolean function that checks that the user input is the correct type */
+bool validateInput(istream &in, ostream &out){
+    /* If it is not the correct type call clearInput and return false */
+    if(in.fail()){
+        clearInput(in);
+        out << "Please enter a valid  number " << endl;
+        return false;
+    }
+    /* Else it is correct so return true */
+    return true;
+}
+
 /* Main Program */
 int main() {
 
@@ -63,134 +75,120 @@ int main() {
                 break;
             }
 
+            /* Variables to store number inputs as doubles */
+            double num,num2;
+            
             /* Switch statement depending on user input */
             switch(input){
                 /* 1. Addition function */
-                case 1:
+                case 1:                    
                     cout << "Addition" << endl;
-                    /* Continue loop while inputs are non-numeric */
-                    while (true){
-                        /* Variables to store inputs as doubles */
-                        double num1,num2;						
+                    /* Continue loop while input is non-numeric */
+                    while(true){
                         cout << "Enter first number" << endl;
                         /* Save input to variable */
-                        cin >> num1;
-                        /* If the input is non-numeric continue asking for input */
-                        while(cin.fail()) {
-                            /* Call function to clear the input stream */
-                            clearInput(cin);
-                            cout << "Please enter a valid  number " << endl;
-                            cin >> num1;
+                        cin >> num;
+                        /* Call function to check input is numeric. If it is 
+                           break out of loop */
+                        if(validateInput(cin,cout)){
+                            break;
                         }
-                        cout << "Enter second number" << endl;
-                        cin >> num2;
-                        while(cin.fail()) {
-                            clearInput(cin);
-                            cout << "Please enter a valid  number " << endl;
-                            cin >> num2;
-                        }
-                        /* Call the add function and print the result */
-                        cout << "RESULT: " << calc.add(num1, num2) << endl;
-                        /* Exit loop */
-                        break;
                     }
+                    while(true){
+                        cout << "Enter second number" << endl;
+                        /* Save input to variable */
+                        cin >> num2;
+                        if(validateInput(cin,cout)){
+                            break;
+                        }
+                    }
+                    /* Call the add function and print the result */
+                    cout << "RESULT: " << calc.add(num, num2) << endl;
                     break;
                 /* 2. Subtraction function */
                 case 2:
                     cout << "Subtraction" << endl;
-                    while (true){
-                        double num1,num2;						
+                    
+                    while(true){    
                         cout << "Enter first number" << endl;
-                        cin >> num1;
-                        while(cin.fail()) {
-                            clearInput(cin);
-                            cout << "Please enter a valid  number " << endl;
-                            cin >> num1;
+                        cin >> num;
+                        if(validateInput(cin,cout)){
+                            break;
                         }
-                        cout << "Enter second number" << endl;
-                        cin >> num2;
-                        while(cin.fail()) {
-                            clearInput(cin);
-                            cout << "Please enter a valid  number " << endl;
-                            cin >> num2;
-                        }
-                        /* Call the subtract function and print the result */
-                        cout << "RESULT: " << calc.subtract(num1, num2) << endl;
-                        break;
                     }
+                    while(true){
+                       cout << "Enter second number" << endl;
+                       cin >> num2;
+                       if(validateInput(cin,cout)){
+                           break;
+                       }
+                    }
+                    /* Call the subtract function and print the result */
+                    cout << "RESULT: " << calc.subtract(num, num2) << endl;
                     break;
+                        
                 /* 3. Multiplication function */
                 case 3:
                     cout << "Multiplication" << endl;
-                    while (true){
-                        double num1,num2;						
+						
+                    while(true){    
                         cout << "Enter first number" << endl;
-                        cin >> num1;
-                        while(cin.fail()) {
-                            clearInput(cin);
-                            cout << "Please enter a valid  number " << endl;
-                            cin >> num1;
+                        cin >> num;
+                        if(validateInput(cin,cout)){
+                            break;
                         }
-                        cout << "Enter second number" << endl;
-                        cin >> num2;
-                        while(cin.fail()) {
-                            clearInput(cin);
-                            cout << "Please enter a valid  number " << endl;
-                            cin >> num2;
-                        }
-                        /* Call the multiply function and print the result */
-                        cout << "RESULT: " << calc.multiply(num1, num2) << endl;
-                        break;
                     }
+                    while(true){
+                       cout << "Enter second number" << endl;
+                       cin >> num2;
+                       if(validateInput(cin,cout)){
+                           break;
+                       }
+                    }
+                    /* Call the multiply function and print the result */
+                    cout << "RESULT: " << calc.multiply(num, num2) << endl;
                     break;
                 /* 4. Division function */
                 case 4:
-                    cout << "Division" << endl;
-                    while (true){
-                        double num1,num2;						
+                    cout << "Division" << endl;						
+                    while(true){    
                         cout << "Enter first number" << endl;
-                        cin >> num1;
-                        while(cin.fail()) {
-                            clearInput(cin);
-                            cout << "Please enter a valid  number " << endl;
-                            cin >> num1;
+                        cin >> num;
+                        if(validateInput(cin,cout)){
+                            break;
                         }
-                        cout << "Enter second number" << endl;
-                        cin >> num2;
-                        while(cin.fail()) {
-                            clearInput(cin);	
-                            cout << "Please enter a valid  number " << endl;
-                            cin >> num2;
-                        }
-                        /* Call the divide function and print the result */
-                        cout << "RESULT: " << calc.divide(num1, num2) << endl;
-                        break;
                     }
+                    while(true){
+                       cout << "Enter second number" << endl;
+                       cin >> num2;
+                       if(validateInput(cin,cout)){
+                           break;
+                       }
+                    }
+                    /* Call the divide function and print the result */
+                    cout << "RESULT: " << calc.divide(num, num2) << endl;
                     break;
                 /* 5. Modulus function */
                 case 5:
-                    cout << "Modulus" << endl;
-                    while (true){
-                        double num1,num2;						
+                    cout << "Modulus" << endl;                   					
+                    while(true){    
                         cout << "Enter first number" << endl;
-                        cin >> num1;
-                        while(cin.fail()) {
-                            clearInput(cin);
-                            cout << "Please enter a valid  number " << endl;
-                            cin >> num1;
+                        cin >> num;
+                        if(validateInput(cin,cout)){
+                            break;
                         }
-                        cout << "Enter second number" << endl;
-                        cin >> num2;
-                        while(cin.fail()) {
-                            clearInput(cin);
-                            cout << "Please enter a valid  number " << endl;
-                            cin >> num2;
-                        }
-                        /* Call the modulus function and print the result */
-                        cout << "RESULT: " << calc.modulus(num1, num2) << endl;
-                        break;
                     }
+                    while(true){
+                       cout << "Enter second number" << endl;
+                       cin >> num2;
+                       if(validateInput(cin,cout)){
+                           break;
+                       }
+                    }    
+                    /* Call the modulus function and print the result */
+                    cout << "RESULT: " << calc.modulus(num, num2) << endl;
                     break;
+                    
                 /* 6. Average function */
                 case 6:
                     cout << "Average" << endl;
@@ -202,7 +200,7 @@ int main() {
                             vector<double> numbers;
                             cout << "Enter a sequence of numbers. ";
                             cout << "Any non-numeric character will end sequence." << endl;
-                            double num;
+                            
                             /* While input is numeric add it to vector */
                             while(cin >> num){
                                 numbers.push_back(num);
@@ -226,59 +224,49 @@ int main() {
                 case 7:
                     cout << "Square root" << endl;
                     while(true){
-                        int num;
                         cout << "Enter number" << endl;
                         cin >> num;
-                        while(cin.fail()) {
-                            clearInput(cin);
-                            cout << "Please enter a valid  number " << endl;
-                            cin >> num;
+                        if(validateInput(cin,cout)){
+                            break;
                         }
-                        /* Call the square root function and print result */
-                        cout << "RESULT: " << calc.squareRoot(num) << endl;
-                        break;
                     }
+                    /* Call the square root function and print result */
+                    cout << "RESULT: " << calc.squareRoot(num) << endl;
                     break;
+                    
                 /* 8. Power function */
                 case 8:
-                    cout << "Power" << endl;
-                    while(true){
-                        int num1,num2;
+                    cout << "Power" << endl;                    
+                    while(true){    
                         cout << "Enter number" << endl;
-                        cin >> num1;
-                        while(cin.fail()){
-                            clearInput(cin);
-                            cout << "Please enter a valid  number " << endl;
-                            cin >> num1;
+                        cin >> num;
+                        if(validateInput(cin,cout)){
+                            break;
                         }
-                        cout << "Enter exponent" << endl;
-                        cin >> num2;
-                        while(cin.fail()){
-                            clearInput(cin);
-                            cout << "Please enter a valid  number " << endl;
-                            cin >> num2;
-                        }
-                        /* Call the power function and print the result */
-                        cout << "RESULT: " << calc.power(num1, num2) << endl;
-                        break;
                     }
+                    while(true){
+                       cout << "Enter exponent" << endl;
+                       cin >> num2;
+                       if(validateInput(cin,cout)){
+                           break;
+                       }
+                    } 
+                    /* Call the power function and print the result */
+                    cout << "RESULT: " << calc.power(num, num2) << endl;
                     break;
+                   
                 /* 9. Factorial function */
                 case 9:
                     cout << "Factorial" << endl;
                     while(true){
-                        int num;
                         cout << "Enter number" << endl;
                         cin >> num;
-                        while(cin.fail()){
-                            clearInput(cin);
-                            cout << "Please enter a valid  number " << endl;
-                            cin >> num;
+                        if(validateInput(cin,cout)){
+                            break;
                         }
-                        /* Call the factorial function and print the result */
-                        cout << "RESULT: " << calc.factorial(num) << endl;
-                        break;
                     }
+                    /* Call the factorial function and print the result */
+                    cout << "RESULT: " << calc.factorial(num) << endl;
                     break;
                 /* Default case where input is not between 1 and 9 */
                 default:

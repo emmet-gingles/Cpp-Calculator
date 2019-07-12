@@ -20,7 +20,7 @@ class Calculator {
         double modulus(double num1, double num2);
         double average(vector<double> nums);
         double squareRoot(int num);
-        double power(int num, int power);
+        double power(double num, int power);
         int factorial(int num);
 };
 

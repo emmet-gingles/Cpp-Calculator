@@ -62,7 +62,7 @@ double Calculator::squareRoot(int num){
 }
 
 /* Function that returns a number to the power of an exponent */
-double Calculator::power(int num, int power){
+double Calculator::power(double num, int power){
     return pow(num, power);
 }
 
